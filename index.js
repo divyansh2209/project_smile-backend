@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 require('dotenv').config();
 const userController = require('./controllers/userController')
+const PORT = process.env.PORT || 5000
 
 const app = express();
 
@@ -29,4 +30,4 @@ app.use(express.json());
 app.use('/', userController);
 
 // connect backend app
-app.listen(process.env.PORT, () => console.log('Server is connected successfully'))
+app.listen(PORT, () => console.log('Server is connected successfully'))
