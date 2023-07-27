@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const resultModel = new Schema({
     userId: String,
+    email: String,
     partOneAns: {
         A: Number,
         B: Number,
