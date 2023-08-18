@@ -1,9 +1,6 @@
 const userController = require('express').Router();
 const Result = require('../models/User')
 const json2csv = require('json2csv').parse;
-const { MongoClient } = require('mongodb');
-const ExcelJS = require('exceljs');
-const fs = require('fs');
 
 userController.get('/users', async (req, res) => {
     try {
@@ -31,11 +28,12 @@ userController.get('/api/users/:username', async (req, res) => {
 
 userController.post('/api/results', async (req, res) => {
     console.log(req.body);
-    const { userId, email ,partOneAns , resultThree, ResultTwo } = req.body;
+    const { userId, email , partOne ,partOneAns , resultThree, ResultTwo } = req.body;
     try {
         const result = new Result({
             userId,
             email,
+            partOne,
             partOneAns,
             resultThree,
             ResultTwo
